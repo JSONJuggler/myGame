@@ -120,7 +120,7 @@ MonoBehaviour:
   atk: 0
   def: 0
   mag: 0
-  speed: 5
+  speed: 0
 --- !u!50 &-4722507524540126274
 Rigidbody2D:
   serializedVersion: 4
