@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         inputAction = new PlayerInputActions();
-        inputAction.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
     }
 
     void FixedUpdate()
@@ -51,6 +50,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        movementInput = inputAction.Player.Move.ReadValue<Vector2>();
+
         move.Set(movementInput.x, movementInput.y);
 
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
