@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd33a4e68c023476694e0217e458d8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInfo: {fileID: 0}
   maxHealth: 0
   atk: 0
   def: 0

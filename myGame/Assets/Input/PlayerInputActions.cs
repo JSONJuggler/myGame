@@ -349,6 +349,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Quaternion"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""OpenPlayerInfo"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""94034a71-eab5-4a70-a07f-a5af88b8c2d0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -769,6 +777,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17b32786-af51-4e1a-b14d-44978e6a0d12"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenPlayerInfo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -853,6 +872,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_OpenPlayerInfo = m_UI.FindAction("OpenPlayerInfo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -961,6 +981,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_OpenPlayerInfo;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -975,6 +996,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @OpenPlayerInfo => m_Wrapper.m_UI_OpenPlayerInfo;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1014,6 +1036,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @TrackedDeviceOrientation.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
+                @OpenPlayerInfo.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenPlayerInfo;
+                @OpenPlayerInfo.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenPlayerInfo;
+                @OpenPlayerInfo.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenPlayerInfo;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1048,6 +1073,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+                @OpenPlayerInfo.started += instance.OnOpenPlayerInfo;
+                @OpenPlayerInfo.performed += instance.OnOpenPlayerInfo;
+                @OpenPlayerInfo.canceled += instance.OnOpenPlayerInfo;
             }
         }
     }
@@ -1115,5 +1143,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnOpenPlayerInfo(InputAction.CallbackContext context);
     }
 }

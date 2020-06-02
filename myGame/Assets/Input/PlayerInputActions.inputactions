@@ -336,6 +336,14 @@
                     "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "OpenPlayerInfo",
+                    "type": "PassThrough",
+                    "id": "94034a71-eab5-4a70-a07f-a5af88b8c2d0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -754,6 +762,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17b32786-af51-4e1a-b14d-44978e6a0d12",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "OpenPlayerInfo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
