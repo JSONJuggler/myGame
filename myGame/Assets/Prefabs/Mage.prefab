@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &6202945226872746986
 Animator:
   serializedVersion: 3
@@ -121,7 +121,13 @@ MonoBehaviour:
   atk: 0
   def: 0
   mag: 0
+  dex: 0
   speed: 0
+  hpStat: {fileID: 0}
+  atkStat: {fileID: 0}
+  defStat: {fileID: 0}
+  magStat: {fileID: 0}
+  dexStat: {fileID: 0}
 --- !u!50 &-4272484480049978099
 Rigidbody2D:
   serializedVersion: 4

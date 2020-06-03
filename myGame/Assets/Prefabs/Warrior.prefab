@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &5785119827269048986
 Animator:
   serializedVersion: 3
@@ -116,11 +116,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd33a4e68c023476694e0217e458d8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInfo: {fileID: 0}
   maxHealth: 0
   atk: 0
   def: 0
   mag: 0
+  dex: 0
   speed: 0
+  hpStat: {fileID: 0}
+  atkStat: {fileID: 0}
+  defStat: {fileID: 0}
+  magStat: {fileID: 0}
+  dexStat: {fileID: 0}
 --- !u!50 &-8282490589522812271
 Rigidbody2D:
   serializedVersion: 4
