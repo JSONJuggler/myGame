@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 50180151499647195}
   - component: {fileID: 50180151499647194}
   - component: {fileID: 5337516344082464273}
+  - component: {fileID: 1570953713865230842}
   m_Layer: 0
   m_Name: GreenSlimeEnemy
   m_TagString: Untagged
@@ -129,3 +130,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9142857, y: 0.51715636}
   m_EdgeRadius: 0
+--- !u!50 &1570953713865230842
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50180151499647197}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
