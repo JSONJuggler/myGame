@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 50180151499647194}
   - component: {fileID: 5337516344082464273}
   - component: {fileID: 1570953713865230842}
-  - component: {fileID: -5006115581089850216}
-  m_Layer: 0
+  - component: {fileID: 964467779360860634}
+  m_Layer: 8
   m_Name: GreenSlimeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-5006115581089850216
+--- !u!114 &964467779360860634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,4 +164,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8041e41e647534535800e35d31002a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.5
+  seekSpeed: 0.5
