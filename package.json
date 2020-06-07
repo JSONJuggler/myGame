@@ -1,0 +1,25 @@
+{
+  "name": "mygame",
+  "version": "1.0.0",
+  "description": "My Game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JSONJunkie/myGame.git"
+  },
+  "author": "Deleon Reescano",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/JSONJunkie/myGame/issues"
+  },
+  "homepage": "https://github.com/JSONJunkie/myGame#readme"
+}
