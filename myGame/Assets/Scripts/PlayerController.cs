@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
 
     public TextMeshProUGUI hpStat;
+    public TextMeshProUGUI hpBar;
     public TextMeshProUGUI atkStat;
     public TextMeshProUGUI defStat;
     public TextMeshProUGUI magStat;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         currentMag = mag;
         currentDex = dex;
         hpStat.text = "Health: " + currentHealth + "/" + maxHealth;
+        hpBar.text = hpStat.text;
         atkStat.text = "Attack: " + currentAtk;
         defStat.text = "Defense: " + currentDef;
         magStat.text = "Magic: " + currentMag;
@@ -61,11 +63,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Vector2 position = rigidbody2d.position;
-        // position = position + movementInput * speed * Time.deltaTime;
         rigidbody2d.AddForce(movementInput * speed * Time.deltaTime, ForceMode2D.Impulse);
-        // rigidbody2d.AddForce(new Vector2(10, 0), ForceMode2D.Impulse);
-        // rigidbody2d.MovePosition(position);
     }
 
     private void OnEnable()
@@ -119,5 +117,12 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        hpStat.text = "Health: " + currentHealth + "/" + maxHealth;
+        hpBar.text = hpStat.text;
     }
 }
