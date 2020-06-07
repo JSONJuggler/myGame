@@ -61,9 +61,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 position = rigidbody2d.position;
-        position = position + movementInput * speed * Time.deltaTime;
-        rigidbody2d.MovePosition(position);
+        // Vector2 position = rigidbody2d.position;
+        // position = position + movementInput * speed * Time.deltaTime;
+        rigidbody2d.AddForce(movementInput * speed * Time.deltaTime, ForceMode2D.Impulse);
+        // rigidbody2d.AddForce(new Vector2(10, 0), ForceMode2D.Impulse);
+        // rigidbody2d.MovePosition(position);
     }
 
     private void OnEnable()

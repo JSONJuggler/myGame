@@ -8,9 +8,10 @@ public class GreenSlimeController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     Vector2 direction;
     Vector2 boxSize = new Vector2(5, 5);
+    Vector2 playerDirection;
 
-    public float speed = .5f;
-    public float seekSpeed = .5f;
+    public float speed = 10f;
+    public float seekSpeed = 15f;
     float maxTimerLength = 3.0f;
     float timer;
     bool moving = true;
@@ -56,17 +57,18 @@ public class GreenSlimeController : MonoBehaviour
         if (hit.collider != null)
         {
             Rigidbody2D player = hit.collider.GetComponent<Rigidbody2D>();
-            Vector2 playerDirection = player.position - rigidbody2d.position;
-            Vector2 position = rigidbody2d.position;
+            playerDirection = player.position - rigidbody2d.position;
+            // Vector2 position = rigidbody2d.position;
 
-            position.x = position.x + seekSpeed * playerDirection.x * Time.deltaTime;
-            position.y = position.y + seekSpeed * playerDirection.y * Time.deltaTime;
+            // position.x = position.x + seekSpeed * playerDirection.x * Time.deltaTime;
+            // position.y = position.y + seekSpeed * playerDirection.y * Time.deltaTime;
 
             animator.SetBool("seeking", true);
             animator.SetFloat("movementInput.x", playerDirection.x);
             animator.SetFloat("movementInput.y", playerDirection.y);
+            rigidbody2d.AddForce(playerDirection * speed * Time.deltaTime, ForceMode2D.Impulse);
 
-            rigidbody2d.MovePosition(position);
+            // rigidbody2d.MovePosition(position);
             return;
         }
 
@@ -77,12 +79,13 @@ public class GreenSlimeController : MonoBehaviour
             animator.SetFloat("movementInput.y", direction.y);
             animator.SetFloat("speed", direction.magnitude);
 
-            Vector2 position = rigidbody2d.position;
+            // Vector2 position = rigidbody2d.position;
 
-            position.x = position.x + speed * direction.x * Time.deltaTime;
-            position.y = position.y + speed * direction.y * Time.deltaTime;
+            // position.x = position.x + speed * direction.x * Time.deltaTime;
+            // position.y = position.y + speed * direction.y * Time.deltaTime;
+            rigidbody2d.AddForce(direction * speed * Time.deltaTime, ForceMode2D.Impulse);
 
-            rigidbody2d.MovePosition(position);
+            // rigidbody2d.MovePosition(position);
         }
 
         if (!moving)
@@ -90,5 +93,14 @@ public class GreenSlimeController : MonoBehaviour
             animator.SetFloat("speed", 0);
         }
 
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Rigidbody2D player = other.gameObject.GetComponent<Rigidbody2D>();
+            player.AddForce(playerDirection * 20, ForceMode2D.Impulse);
+        }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5457676250854047390}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   def: 1
   mag: 1
   dex: 1
-  speed: 2
+  speed: 40
   hpStat: {fileID: 2642805552357119156}
   atkStat: {fileID: 2642805551838200811}
   defStat: {fileID: 2642805553033417243}
@@ -142,8 +142,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 5
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
